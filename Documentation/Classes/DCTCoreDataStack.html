@@ -67,8 +67,6 @@
 	
 	<option value="//api/name/initWithStoreURL:storeType:storeOptions:modelConfiguration:modelURL:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithStoreURL:storeType:storeOptions:modelConfiguration:modelURL:</option>
 	
-	<option value="//api/name/newWorkerManagedObjectContext">&nbsp;&nbsp;&nbsp;&nbsp;- newWorkerManagedObjectContext</option>
-	
 	
 	
 </select>
@@ -129,8 +127,6 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithStoreURL:storeType:storeOptions:modelConfiguration:modelURL:">initWithStoreURL:storeType:storeOptions:modelConfiguration:modelURL:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/newWorkerManagedObjectContext">newWorkerManagedObjectContext</a></span></li>
-	
 </ul></li>
 
 
@@ -180,7 +176,7 @@ that after initializing, the <a href="#//api/name/managedObjectContext">managedO
 <li>Allows you to resolve errors when loading the persistent store by setting <a href="#//api/name/didResolvePersistentStoreErrorHandler">didResolvePersistentStoreErrorHandler</a></li>
 <li>On iOS, the app entering the background, or terminating, automatically triggers a save if needed. You can be notified of such saves by setting <a href="#//api/name/automaticSaveCompletionHandler">automaticSaveCompletionHandler</a></li>
 <li>On iOS, when saving on a background thread, the stack protects against termination/suspension by declaring the save as a background task</li>
-<li>Generation of private queue managed object contexts via <a href="#//api/name/newWorkerManagedObjectContext">[DCTCoreDataStack newWorkerManagedObjectContext]</a>. Saving this causes a save to disk and a merge to the context in <a href="#//api/name/managedObjectContext">managedObjectContext</a></li>
+<li>Generation of private queue managed object contexts via [DCTCoreDataStack newWorkerManagedObjectContext]. Saving this causes a save to disk and a merge to the context in <a href="#//api/name/managedObjectContext">managedObjectContext</a></li>
 <li>Providing @YES for DCTCoreDataStackExcludeFromBackupStoreOption in the <a href="#//api/name/storeOptions">storeOptions</a> will exclude the persistent store from being backed up</li>
 </ol>
 
@@ -227,13 +223,6 @@ that after initializing, the <a href="#//api/name/managedObjectContext">managedO
 		<span class="tooltip"><p>Provides a context for working on the main thread.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/newWorkerManagedObjectContext">&ndash;&nbsp;newWorkerManagedObjectContext</a></code>
-		<span class="tooltip"><p>Generates a new private context to do background work on.</p></span>
-	</span>
-	
 	
 </li>
 						</ul>
@@ -731,47 +720,6 @@ to perform quicker saves to disk. Saving this context causes the parent context 
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>For more detailed information about the <a href="#//api/name/storeType">storeType</a>, <a href="#//api/name/storeOptions">storeOptions</a> and <a href="#//api/name/modelConfiguration">modelConfiguration</a> parameters, see the documentation for <a href="NSPersistentStoreCoordinator">NSPersistentStoreCoordinator</a>.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">DCTCoreDataStack.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/newWorkerManagedObjectContext" title="newWorkerManagedObjectContext"></a>
-	<h3 class="subsubtitle method-title">newWorkerManagedObjectContext</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Generates a new private context to do background work on.</p>
-	</div>		
-	
-	
-	<div class="method-subsection method-declaration"><code>- (NSManagedObjectContext *)newWorkerManagedObjectContext</code></div>
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>This is a sibling to the <a href="#//api/name/managedObjectContext">managedObjectContext</a> and saves to this context will merge across
-to the <a href="#//api/name/managedObjectContext">managedObjectContext</a>. Changes to the <a href="#//api/name/managedObjectContext">managedObjectContext</a> will not merge across
-to the context given from this method, and should be handled by the user if desired.</p>
 	</div>
 	
 	
